@@ -1,0 +1,63 @@
+# Зависимости
+node_modules/
+.pnp/
+.pnp.js
+
+# Журналы
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Зависимости менеджеров
+yarn.lock
+pnpm-lock.yaml
+
+# Результаты тестирования
+coverage/
+*.lcov
+.nyc_output
+
+# Отчёты SonarQube
+.sonar/
+
+# Временные файлы
+*.tmp
+*.temp
+
+# Файлы IDE и редакторов
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Сборка и дистрибутив
+dist/
+build/
+out/
+
+# Конфигурационные файлы ОС
+.DS_Store
+Thumbs.db
+
+# Локальные переменные окружения
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Кэши
+.cache/
+.eslintcache
+.prettiercache
+
+# Артефакты CI
+.github/workflows/*.test.yml  # если нужны отдельные тестовые конфиги
+
+# Другие возможные игнорируемые папки
+temp/
+tmp/
