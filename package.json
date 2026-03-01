@@ -1,0 +1,40 @@
+{
+  "name": "frontend-project-11",
+  "version": "1.0.0",
+  "description": "RSS Reader — сервис для агрегации RSS‑потоков. Позволяет добавлять неограниченное количество RSS‑лент, автоматически обновляет их и показывает новые записи в общем потоке.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --coverageReporters=lcov",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "keywords": [
+    "rss",
+    "feed",
+    "reader",
+    "aggregator",
+    "frontend"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@jest/globals": "^30.0.5",
+    "@stylistic/eslint-plugin": "^5.2.3",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^9.34.0",
+    "gh-pages": "^5.0.0",
+    "globals": "^16.3.0",
+    "jest": "^30.0.5",
+    "vite": "^7.3.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
