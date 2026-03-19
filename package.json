@@ -1,5 +1,6 @@
 {
-  "name": "frontend-project-11",
+  "name": "@hexlet/code",
+  "private": true,
   "version": "1.0.0",
   "description": "RSS Reader — сервис для агрегации RSS‑потоков. Позволяет добавлять неограниченное количество RSS‑лент, автоматически обновляет их и показывает новые записи в общем потоке.",
   "type": "module",
