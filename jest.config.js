@@ -17,4 +17,4 @@ export default {
     '/node_modules/(?!@jest/globals)',
   ],
   moduleFileExtensions: ['js', 'json', 'node'],
-};
+}

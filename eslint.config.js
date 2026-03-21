@@ -1,6 +1,6 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import stylistic from '@stylistic/eslint-plugin';
+import js from '@eslint/js'
+import globals from 'globals'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default [
   // Стилистические правила
@@ -30,6 +30,9 @@ export default [
       'no-alert': 'error',
       'no-unused-vars': 'warn',
       'prefer-const': 'error',
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+      '@stylistic/arrow-parens': ['error', 'always'],
     },
   },
 
@@ -45,4 +48,4 @@ export default [
       'vite.config.js',
     ],
   },
-];
+]
