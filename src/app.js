@@ -1,6 +1,7 @@
-import * as yup from 'yup'
 import i18n from 'i18next'
 import resources from './locales/index.js'
+import getState from './store/state.js'
+import validationSchema from './validation/schema.js'
 import {
   loadTranslations,
   renderFeedback,
@@ -12,18 +13,7 @@ import {
 import { getRss, rssPostsUpdate } from './rss.js'
 
 export default () => {
-  const state = {
-    form: {
-      value: null,
-      error: '',
-    },
-    guids: new Set(),
-    urls: new Set(),
-    posts: [],
-    readPostsId: new Set(),
-    feeds: [],
-    descriptions: [],
-  }
+  const state = getState()
 
   const i18nInstance = i18n.createInstance()
   i18nInstance.init({
@@ -31,8 +21,6 @@ export default () => {
     debug: false,
     resources,
   })
-
-  const schema = yup.string().url('invalidURL').required('required')
 
   const elements = {
     form: document.querySelector('form'),
@@ -89,7 +77,7 @@ export default () => {
 
     state.form.value = value
 
-    schema
+    validationSchema
       .validate(state.form.value, { abortEarly: false })
       .then(() => {
         elements.common.submitAddBtn.disabled = true
