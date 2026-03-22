@@ -55,7 +55,7 @@ async function fetchRss(url) {
       throw error
     }
     console.error(error)
-    throw new Error('networkError')
+    throw new Error('networkError', { cause: error })
   }
 }
 

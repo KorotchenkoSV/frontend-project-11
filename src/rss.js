@@ -24,7 +24,7 @@ function rssPostsUpdate(state, url, timeout = 5000, onNewPosts = () => {}) {
         console.error('RSS update error:', err)
       })
       .finally(() => {
-        setTimeout(tick, timeout)
+        setTimeout(() => tick(), timeout)
       })
   }
 
