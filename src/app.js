@@ -92,8 +92,6 @@ export default () => {
         rssPostsUpdate(state, lastUrl, 5000, () => renderPosts(state, elements, i18nInstance))
       })
       .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error('err: ', error)
         state.form.error = error.message
         renderFeedback(state, elements, i18nInstance)
       })
