@@ -1,7 +1,18 @@
 import js from '@eslint/js'
 import globals from 'globals'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default [
+  // Стилистические правила
+  stylistic.configs.recommended,
+  stylistic.configs.customize({
+    indent: 2,
+    quotes: 'single',
+    semi: true,
+    trailingComma: 'es5',
+  }),
+
+  // Основные правила для JS‑файлов
   {
     files: ['**/*.{js,mjs,cjs}'],
     languageOptions: {
@@ -19,8 +30,13 @@ export default [
       'no-alert': 'error',
       'no-unused-vars': 'warn',
       'prefer-const': 'error',
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+      '@stylistic/arrow-parens': ['error', 'always'],
     },
   },
+
+  // Игнорируемые файлы и папки
   {
     ignores: [
       'node_modules/**',
@@ -33,4 +49,3 @@ export default [
     ],
   },
 ]
-
