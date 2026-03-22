@@ -50,7 +50,6 @@ export default () => {
 
     if (link) {
       const postId = link.dataset.id
-
       if (!state.readPostsId.has(postId)) {
         state.readPostsId.add(postId)
         renderReadAsPost(elements, postId)
@@ -59,29 +58,24 @@ export default () => {
 
     if (button) {
       const postId = button.dataset.id
-
       if (!state.readPostsId.has(postId)) {
         state.readPostsId.add(postId)
         renderReadAsPost(elements, postId)
       }
-
       renderModal(state, elements, postId)
     }
   })
 
   elements.form.addEventListener('submit', (event) => {
     event.preventDefault()
-
     const formData = new FormData(event.target)
     const value = formData.get('url').trim()
-
     state.form.value = value
 
     validationSchema
       .validate(state.form.value, { abortEarly: false })
       .then(() => {
         elements.common.submitAddBtn.disabled = true
-
         if (state.urls.has(state.form.value)) {
           state.form.error = 'repeatedURL'
           renderFeedback(state, elements, i18nInstance)
@@ -94,11 +88,11 @@ export default () => {
         state.form.error = ''
         renderFeedback(state, elements, i18nInstance)
         renderRssContent(state, elements, i18nInstance)
-
         const lastUrl = Array.from(state.urls).at(-1)
         rssPostsUpdate(state, lastUrl, 5000, () => renderPosts(state, elements, i18nInstance))
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error('err: ', error)
         state.form.error = error.message
         renderFeedback(state, elements, i18nInstance)

@@ -10,9 +10,7 @@ function renderFeedback(state, elements, i18n) {
     elements.feedback.classList.add('text-danger')
     elements.feedback.classList.remove('text-success')
     elements.feedback.textContent = i18n.t(`feedback.errors.${state.form.error}`)
-    // eslint-disable-next-line
-  } 
-  else {
+  } else {
     elements.input.classList.remove('is-invalid')
     elements.feedback.classList.add('text-success')
     elements.feedback.classList.remove('text-danger')
@@ -35,7 +33,6 @@ function renderRssLayout(elements, i18n, feedsOrPosts) {
   listGroup.classList.add('list-group', 'border-0', 'rounded-0')
 
   listGroup.id = `list-group-${feedsOrPosts}`
-
   cardTitle.textContent = i18n.t(`${feedsOrPosts}CardTitle`)
 
   card.append(cardBody, listGroup)
@@ -50,7 +47,6 @@ function renderFeeds(state, elements, i18n) {
   }
 
   const listGroupFeeds = document.getElementById('list-group-feeds')
-
   const listGroupItem = document.createElement('li')
   const listItemName = document.createElement('h3')
   const listItemDescription = document.createElement('p')
@@ -70,9 +66,11 @@ function renderPosts(state, elements, i18n) {
   if (elements.posts.childNodes.length === 0) {
     renderRssLayout(elements, i18n, 'posts')
   }
-  const listGroupPosts = document.getElementById('list-group-posts')
 
-  state.posts.at(-1).forEach(({ title, link, id }) => {
+  const listGroupPosts = document.getElementById('list-group-posts')
+  const lastPosts = state.posts.slice(-10)
+
+  lastPosts.forEach(({ title, link, id }) => {
     const listGroupItem = document.createElement('li')
     const listItemLink = document.createElement('a')
     const listItemButton = document.createElement('button')
@@ -83,7 +81,7 @@ function renderPosts(state, elements, i18n) {
       'justify-content-between',
       'align-items-start',
       'border-0',
-      'border-end-0',
+      'border-end-0', // добавлена запятая
     )
 
     listItemLink.classList.add('fw-bold')
@@ -114,7 +112,6 @@ function renderRssContent(state, elements, i18n) {
 
 function renderReadAsPost(elements, postId) {
   const link = elements.posts.querySelector(`a[data-id="${postId}"]`)
-  console.log(link)
   link.classList.remove('fw-bold')
   link.classList.add('fw-normal', 'link-secondary')
 }
@@ -126,5 +123,10 @@ function renderModal(state, elements, postId) {
   elements.modalBody.textContent = description
   elements.modalBtnFullArticle.href = link
 }
-
-export { loadTranslations, renderFeedback, renderPosts, renderRssContent, renderReadAsPost, renderModal }
+// Явный именованный экспорт каждой функции
+export { loadTranslations }
+export { renderFeedback }
+export { renderPosts }
+export { renderRssContent }
+export { renderReadAsPost }
+export { renderModal }

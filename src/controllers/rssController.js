@@ -58,6 +58,8 @@ async function fetchRss(url) {
     // eslint-disable-next-line no-console
     console.error('Network error details:', error)
     throw new Error('networkError', { cause: error })
+  } finally {
+    // код finally (если нужен)
   }
 }
 
