@@ -19,8 +19,7 @@ function rssPostsUpdate(state, url, timeout = 5000, onNewPosts = () => {}) {
           onNewPosts()
         }
       })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
+      .catch(err => {
         console.error('RSS update error:', err)
       })
       .finally(() => {

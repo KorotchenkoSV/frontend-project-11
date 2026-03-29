@@ -51,15 +51,12 @@ async function fetchRss(url) {
     const response = await axios.get(buildProxyUrl(url), { timeout: 10000 })
     const data = response.data.contents
     return parseRss(data)
-  } catch (error) {
+  } 
+  catch (error) {
     if (error.message === 'invalidRSS') {
       throw error
     }
-    // eslint-disable-next-line no-console
-    console.error('Network error details:', error)
     throw new Error('networkError', { cause: error })
-  } finally {
-    // код finally (если нужен)
   }
 }
 
