@@ -10,8 +10,8 @@ function renderFeedback(state, elements, i18n) {
     elements.feedback.classList.add('text-danger')
     elements.feedback.classList.remove('text-success')
     elements.feedback.textContent = i18n.t(`feedback.errors.${state.form.error}`)
-  } 
-    else {
+  }
+  else {
     elements.input.classList.remove('is-invalid')
     elements.feedback.classList.add('text-success')
     elements.feedback.classList.remove('text-danger')

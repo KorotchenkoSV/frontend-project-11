@@ -5,7 +5,7 @@ async function getRss(state) {
   state.posts.push(...posts)
   state.feeds.push(feed)
   state.descriptions.push(description)
-  guids.forEach((guid) => state.guids.add(guid))
+  guids.forEach(guid => state.guids.add(guid))
 }
 
 function rssPostsUpdate(state, url, timeout = 5000, onNewPosts = () => {}) {
@@ -19,7 +19,7 @@ function rssPostsUpdate(state, url, timeout = 5000, onNewPosts = () => {}) {
           onNewPosts()
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.error('RSS update error:', err)
       })
       .finally(() => {

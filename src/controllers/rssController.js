@@ -51,7 +51,7 @@ async function fetchRss(url) {
     const response = await axios.get(buildProxyUrl(url), { timeout: 10000 })
     const data = response.data.contents
     return parseRss(data)
-  } 
+  }
   catch (error) {
     if (error.message === 'invalidRSS') {
       throw error
